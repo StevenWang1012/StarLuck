@@ -1,1 +1,102 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>星運娛樂城｜首頁</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <!-- 直接貼上共用 Header 片段 -->
+  <header>
+    <div class="container nav">
+      <div class="nav-left">
+        <a class="logo" href="index.html">★ 星運娛樂城</a>
+        <button class="hamburger">☰</button>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" aria-current="page">首頁</a>
+        <a href="games.html">遊戲介紹</a>
+        <a href="guide.html">新手專區</a>
+        <a href="deposit.html">儲值教學</a>
+        <a href="shortcut.html">快速捷徑教學</a>
+        <a href="support.html">客服中心</a>
+        <a class="nav-cta btn" href="#" id="quick-play">立即進入遊戲</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主視覺 + 快速登入 -->
+  <section class="hero section">
+    <div class="container grid grid-2">
+      <div>
+        <h1>星運加持，財運不斷！</h1>
+        <p>紅金亮色系尊榮體驗，一鍵開玩、免安裝、即刻暢玩。</p>
+        <a class="btn" id="hero-play" href="#">立即進入遊戲</a>
+      </div>
+      <div class="card">
+        <h4 style="margin-top:0;color:var(--brand-gold)">掃碼馬上玩</h4>
+        <div class="qr"></div>
+        <p class="meta">或點擊上方按鈕直接開啟</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 活動區 -->
+  <section class="section">
+    <div class="container">
+      <h2>最新活動</h2>
+      <div class="grid grid-3">
+        <div class="card"><h4>活動 A</h4><p class="meta">簡短描述</p><a class="btn-ghost" href="#">查看詳情</a></div>
+        <div class="card"><h4>活動 B</h4><p class="meta">簡短描述</p><a class="btn-ghost" href="#">查看詳情</a></div>
+        <div class="card"><h4>活動 C</h4><p class="meta">簡短描述</p><a class="btn-ghost" href="#">查看詳情</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 合作夥伴 -->
+  <section class="section">
+    <div class="container">
+      <h2>合作夥伴</h2>
+      <div class="grid grid-3">
+        <div class="card">錦鉅城</div>
+        <div class="card">DM</div>
+        <div class="card">JKF</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta" aria-label="右側浮動導流區">
+    <div class="fab"><span class="dot"></span><span>立即玩</span></div>
+    <div class="inner" style="padding:12px;">
+      <h5>立即掃描馬上玩</h5>
+      <div class="qr"></div>
+      <a class="btn" style="margin-top:12px;display:block;text-align:center" href="#" id="quick-play-panel">網頁版馬上玩</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="links">
+        <a href="support.html?tab=terms">服務條款</a>
+        <a href="support.html?tab=privacy">隱私條款</a>
+        <a href="support.html?tab=rules">遊戲規章</a>
+        <a href="support.html?tab=banlist">停權列表</a>
+      </div>
+      <p style="margin:8px 0 0;">© 2025 星運娛樂城 ｜ 18+ 未成年人請勿使用</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // 統一遊戲入口 URL（之後替換正式連結）
+    const GAME_URL = '#'; 
+    ['quick-play','quick-play-panel','hero-play'].forEach(id=>{
+      const el = document.getElementById(id); if(el) el.href = GAME_URL;
+    });
+  </script>
+</body>
+</html>
 
