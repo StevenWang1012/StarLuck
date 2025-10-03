@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>星運娛樂城｜新手專區</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- Header 同前 -->
+  <header>
+    <div class="container nav">
+      <div class="nav-left">
+        <a class="logo" href="index.html">★ 星運娛樂城</a>
+        <button class="hamburger">☰</button>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">首頁</a>
+        <a href="games.html">遊戲介紹</a>
+        <a href="guide.html" aria-current="page">新手專區</a>
+        <a href="deposit.html">儲值教學</a>
+        <a href="shortcut.html">快速捷徑教學</a>
+        <a href="support.html">客服中心</a>
+        <a class="nav-cta btn" href="#" id="quick-play">立即進入遊戲</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主視覺 + 快速登入 -->
+  <section class="hero section">
+    <div class="container grid grid-2">
+      <div>
+        <h1>新手專屬指南，三分鐘立即上手</h1>
+        <p class="meta">介面教學、VIP、禮包、公告，一站看懂</p>
+        <a class="btn" id="guide-play" href="#">立即暢玩</a>
+      </div>
+      <div class="card">
+        <h4 style="margin-top:0;color:var(--brand-gold)">掃碼馬上玩</h4>
+        <div class="qr"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 教學 Tabs -->
+  <section class="section" id="guide-tabs">
+    <div class="container">
+      <div class="tabs">
+        <button class="tab" data-tab="intro">介面說明</button>
+        <button class="tab" data-tab="vip">VIP 說明</button>
+        <button class="tab" data-tab="gift">禮包說明</button>
+        <button class="tab" data-tab="notice">公告說明</button>
+      </div>
+
+      <div class="grid" data-panel="intro">
+        <div class="card"><h4>操作介面說明</h4><p>用圖片 + 編號說明主要按鈕功能。</p></div>
+      </div>
+      <div class="grid" data-panel="vip" style="display:none">
+        <div class="card"><h4>VIP 等級與福利</h4><p>升級條件、每日/每週福利簡介。</p></div>
+      </div>
+      <div class="grid" data-panel="gift" style="display:none">
+        <div class="card"><h4>新手禮包</h4><p>登入即送的獎勵與領取說明。</p></div>
+      </div>
+      <div class="grid" data-panel="notice" style="display:none">
+        <div class="card"><h4>最新公告</h4><p>官方公告與提醒。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky CTA + Footer（同前） -->
+  <div class="sticky-cta" aria-label="右側浮動導流區">
+    <div class="fab"><span class="dot"></span><span>立即玩</span></div>
+    <div class="inner" style="padding:12px;">
+      <h5>立即掃描馬上玩</h5>
+      <div class="qr"></div>
+      <a class="btn" style="margin-top:12px;display:block;text-align:center" href="#" id="quick-play-panel">網頁版馬上玩</a>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="links">
+        <a href="support.html?tab=terms">服務條款</a>
+        <a href="support.html?tab=privacy">隱私條款</a>
+        <a href="support.html?tab=rules">遊戲規章</a>
+        <a href="support.html?tab=banlist">停權列表</a>
+      </div>
+      <p style="margin:8px 0 0;">© 2025 星運娛樂城 ｜ 18+ 未成年人請勿使用</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const GAME_URL = '#';
+    ['quick-play','quick-play-panel','guide-play'].forEach(id=>{
+      const el = document.getElementById(id); if(el) el.href = GAME_URL;
+    });
+    applyTabs('#guide-tabs'); // ?tab=intro|vip|gift|notice
+  </script>
+</body>
+</html>
