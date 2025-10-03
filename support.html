@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>星運娛樂城｜客服中心</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- Header 同前 -->
+  <header>
+    <div class="container nav">
+      <div class="nav-left">
+        <a class="logo" href="index.html">★ 星運娛樂城</a>
+        <button class="hamburger">☰</button>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">首頁</a>
+        <a href="games.html">遊戲介紹</a>
+        <a href="guide.html">新手專區</a>
+        <a href="deposit.html">儲值教學</a>
+        <a href="shortcut.html">快速捷徑教學</a>
+        <a href="support.html" aria-current="page">客服中心</a>
+        <a class="nav-cta btn" href="#" id="quick-play">立即進入遊戲</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section" id="support-tabs">
+    <div class="container">
+      <h1>客服中心</h1>
+      <div class="tabs">
+        <button class="tab" data-tab="terms">服務條款</button>
+        <button class="tab" data-tab="privacy">隱私條款</button>
+        <button class="tab" data-tab="rules">遊戲規章</button>
+        <button class="tab" data-tab="banlist">停權列表</button>
+      </div>
+
+      <div class="grid" data-panel="terms">
+        <div class="card"><h4>服務條款</h4><p>（在此放條款全文或分段內容）</p></div>
+      </div>
+      <div class="grid" data-panel="privacy" style="display:none">
+        <div class="card"><h4>隱私條款</h4><p>（在此放隱私政策全文）</p></div>
+      </div>
+      <div class="grid" data-panel="rules" style="display:none">
+        <div class="card"><h4>遊戲規章</h4><p>（在此放遊戲規範、玩家守則）</p></div>
+      </div>
+      <div class="grid" data-panel="banlist" style="display:none">
+        <div class="card"><h4>停權列表</h4><p>（在此呈現被停權帳號清單或查詢方式）</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer 同前 -->
+  <footer>
+    <div class="container">
+      <div class="links">
+        <a href="support.html?tab=terms">服務條款</a>
+        <a href="support.html?tab=privacy">隱私條款</a>
+        <a href="support.html?tab=rules">遊戲規章</a>
+        <a href="support.html?tab=banlist">停權列表</a>
+      </div>
+      <p style="margin:8px 0 0;">© 2025 星運娛樂城 ｜ 18+ 未成年人請勿使用</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    applyTabs('#support-tabs'); // ?tab=terms|privacy|rules|banlist
+  </script>
+</body>
+</html>
