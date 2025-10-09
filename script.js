@@ -1,35 +1,35 @@
-// 1. 手机端汉堡菜单切换（需求1.15）
+// 1. 手機端漢堡選單切換
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 hamburgerBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
 });
 
-// 2. 新手专区Tab切换（需求1.39）
+// 2. 新手專區Tab切換
 const newbieTabs = document.querySelectorAll('#newbie-tabs button');
 const newbieTabContents = document.querySelectorAll('.newbie-tab-content');
 newbieTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-        // 移除所有Tab的激活状态
+        // 移除所有Tab的激活狀態
         newbieTabs.forEach(t => {
             t.classList.remove('border-secondary-cta', 'text-secondary-cta');
             t.classList.add('border-transparent', 'text-gray-500');
             t.setAttribute('aria-selected', 'false');
         });
-        // 隐藏所有Tab内容
+        // 隱藏所有Tab內容
         newbieTabContents.forEach(content => content.classList.add('hidden'));
         
-        // 激活当前Tab
+        // 激活當前Tab
         tab.classList.remove('border-transparent', 'text-gray-500');
         tab.classList.add('border-secondary-cta', 'text-secondary-cta');
         tab.setAttribute('aria-selected', 'true');
-        // 显示当前Tab内容
+        // 顯示當前Tab內容
         const targetId = tab.getAttribute('data-tabs-target');
         document.querySelector(targetId).classList.remove('hidden');
     });
 });
 
-// 3. EVENT轮播功能（需求1.150、1.151）
+// 3. EVENT輪播功能
 const carousel = document.getElementById('event-carousel').querySelector('.flex');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
@@ -37,13 +37,13 @@ const indicators = document.querySelectorAll('#event-carousel + div button');
 let currentIndex = 0;
 const slideCount = carousel.children.length;
 
-// 轮播切换函数
+// 輪播切換函數
 function goToSlide(index) {
     currentIndex = index;
     const translateValue = `translateX(-${currentIndex * 100}%)`;
     carousel.style.transform = translateValue;
     
-    // 更新指示器状态
+    // 更新指示器狀態
     indicators.forEach((indicator, i) => {
         if (i === currentIndex) {
             indicator.classList.remove('bg-gray-300');
@@ -55,7 +55,7 @@ function goToSlide(index) {
     });
 }
 
-// 前一张/后一张按钮
+// 前一張/後一張按鈕
 prevBtn.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + slideCount) % slideCount;
     goToSlide(currentIndex);
@@ -65,20 +65,20 @@ nextBtn.addEventListener('click', () => {
     goToSlide(currentIndex);
 });
 
-// 指示器点击
+// 指示器點擊
 indicators.forEach((indicator, i) => {
     indicator.addEventListener('click', () => goToSlide(i));
 });
 
-// 自动轮播（5秒一次，需求1.151）
+// 自動輪播（5秒一次）
 let autoSlideInterval = setInterval(() => {
     currentIndex = (currentIndex + 1) % slideCount;
     goToSlide(currentIndex);
 }, 5000);
 
-// 鼠标悬停时暂停自动轮播
+// 滑鼠懸停時暫停自動輪播
 carousel.parentElement.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-// 鼠标离开时恢复自动轮播
+// 滑鼠離開時恢復自動輪播
 carousel.parentElement.addEventListener('mouseleave', () => {
     autoSlideInterval = setInterval(() => {
         currentIndex = (currentIndex + 1) % slideCount;
@@ -86,10 +86,10 @@ carousel.parentElement.addEventListener('mouseleave', () => {
     }, 5000);
 });
 
-// 4. 返回顶部按钮（需求1.189）
+// 4. 返回頂部按鈕
 const backToTopBtn = document.getElementById('back-to-top');
 window.addEventListener('scroll', () => {
-    // 滚动超过300px时显示按钮
+    // 滾動超過300px時顯示按鈕
     if (window.scrollY > 300) {
         backToTopBtn.classList.remove('opacity-0');
         backToTopBtn.classList.add('opacity-100');
@@ -102,6 +102,41 @@ backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// 5. 游戏卡片点击弹出模态框（需求1.27、1.30）
+// 5. 遊戲卡片點擊彈出模態框
 const gameItems = document.querySelectorAll('.game-item');
-gameItems.forEach(item =>
+gameItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // 創建模態框
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-neutral-text">${item.querySelector('p').textContent}</h3>
+                    <button class="close-modal text-gray-500 hover:text-gray-700">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
+                <img src="${item.querySelector('img').src}" alt="${item.querySelector('p').textContent}" class="w-full h-48 object-cover rounded mb-4">
+                <p class="text-neutral-text text-sm mb-4">遊戲介紹：${item.querySelector('p').textContent}是一款經典休閒遊戲，玩法簡單，獎勵豐厚！</p>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="bg-neutral-lightBg p-3 rounded-md text-center">
+                        <img src="https://picsum.photos/id/15/100" alt="遊戲QR碼" class="w-24 h-auto mx-auto mb-2">
+                        <p class="text-xs text-neutral-text">掃碼進入遊戲</p>
+                    </div>
+                    <a href="https://starluck-game.url" target="_blank" class="bg-secondary-cta text-white px-4 py-2 rounded-md hover:bg-secondary-cta/90 transition-colors text-center">
+                        立即進入遊戲
+                    </a>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        document.body.style.overflow = 'hidden'; // 禁止背景滾動
+        
+        // 關閉模態框
+        modal.querySelector('.close-modal').addEventListener('click', () => {
+            document.body.removeChild(modal);
+            document.body.style.overflow = '';
+        });
+    });
+});
