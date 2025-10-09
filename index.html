@@ -1,112 +1,168 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>星運娛樂城</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Noto Sans TC', sans-serif;
-      background: linear-gradient(to bottom, #1b1b2f, #151515);
-      color: white;
-    }
-    .navbar {
-      background-color: #111;
-    }
-    .navbar-brand {
-      color: gold;
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-    .nav-link {
-      color: white !important;
-    }
-    .hero {
-      background: linear-gradient(135deg, #4a148c, #880e4f);
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-    .qr-area {
-      background-color: #222;
-      border-radius: 16px;
-      padding: 20px;
-      display: inline-block;
-    }
-    .btn-line {
-      background-color: #06C755;
-      color: white;
-      margin: 10px;
-      border-radius: 50px;
-      padding: 10px 20px;
-    }
-    .btn-play {
-      background-color: #2D9CDB;
-      color: white;
-      margin: 10px;
-      border-radius: 50px;
-      padding: 10px 20px;
-    }
-    footer {
-      background-color: #000;
-      color: #aaa;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starluck 星運娛樂城</title>
+    <!-- 引入 CDN 資源：Tailwind CSS（免本地編譯）、Font Awesome（圖示） -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 引入自訂樣式 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind 自訂配置（可直接在 HTML 內設定，無需 tailwind.config.js） -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            red: '#E63946',
+                            gold: '#FFD700',
+                            warm: '#FF9F1C'
+                        },
+                        secondary: {
+                            line: '#06C755',
+                            cta: '#1E88E5'
+                        },
+                        neutral: {
+                            text: '#333333',
+                            lightBg: '#F9F9F9'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="font-sans text-neutral-text bg-neutral-lightBg">
+    <!-- 頂部導覽列 -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- LOGO：點擊回首頁 -->
+            <a href="#" class="flex items-center gap-2">
+                <span class="text-primary-gold text-2xl font-bold">STARLUCK</span>
+                <span class="text-neutral-text text-sm">星運娛樂城</span>
+            </a>
 
-<!-- 導覽列 -->
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">星運娛樂城</a>
-    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      ☰
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#">遊戲介紹</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">主題介紹</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">操作說明</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">儲值點數</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">教學導覽</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">客服中心</a></li>
-        <li class="nav-item"><a class="nav-link text-danger" href="#">註冊/登入</a></li>
-      </ul>
+            <!-- 桌機端導覽選單（手機端隱藏） -->
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#game-intro" class="text-neutral-text hover:text-primary-red transition-colors">遊戲介紹</a>
+                <a href="#newbie" class="text-neutral-text hover:text-primary-red transition-colors">新手專區</a>
+                <a href="#recharge" class="text-neutral-text hover:text-primary-red transition-colors">儲值教學</a>
+                <a href="#customer" class="text-neutral-text hover:text-primary-red transition-colors">客服中心</a>
+                
+                <!-- 桌機端快速登入按鈕 -->
+                <div class="flex gap-3 ml-4">
+                    <button class="bg-secondary-line text-white px-4 py-2 rounded-md hover:bg-secondary-line/90 transition-colors">
+                        <i class="fa-brands fa-line mr-1"></i>LINE 登入
+                    </button>
+                    <button class="bg-secondary-cta text-white px-4 py-2 rounded-md hover:bg-secondary-cta/90 transition-colors">
+                        <i class="fa-solid fa-globe mr-1"></i>網頁登入
+                    </button>
+                </div>
+            </nav>
+
+            <!-- 手機端漢堡選單按鈕 -->
+            <button id="hamburger-btn" class="md:hidden text-neutral-text text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 手機端導覽選單（預設隱藏） -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <div class="container mx-auto px-4 py-3 flex flex-col gap-4">
+                <a href="#game-intro" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">遊戲介紹</a>
+                <a href="#newbie" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">新手專區</a>
+                <a href="#recharge" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">儲值教學</a>
+                <a href="#customer" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">客服中心</a>
+                
+                <!-- 手機端快速登入按鈕（上下堆疊） -->
+                <div class="flex flex-col gap-3 pt-2">
+                    <button class="bg-secondary-line text-white px-4 py-2 rounded-md hover:bg-secondary-line/90 transition-colors">
+                        <i class="fa-brands fa-line mr-1"></i>LINE 登入
+                    </button>
+                    <button class="bg-secondary-cta text-white px-4 py-2 rounded-md hover:bg-secondary-cta/90 transition-colors">
+                        <i class="fa-solid fa-globe mr-1"></i>網頁登入
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首頁主體內容 -->
+    <main>
+        <!-- 區塊1：快速登入 -->
+        <section class="py-12 bg-gradient-to-r from-primary-warm/20 to-primary-red/10">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral-text mb-4">星運娛樂城 - 立即開始遊戲</h2>
+                <p class="text-neutral-text/80 mb-8 max-w-2xl mx-auto">一鍵登入，暢玩海量精選遊戲，新人專享發財金福利！</p>
+                
+                <div class="flex flex-col md:flex-row justify-center gap-4 mb-6">
+                    <a href="https://starluck-game.url" target="_blank" class="bg-secondary-line text-white px-8 py-3 rounded-md hover:bg-secondary-line/90 transition-colors text-lg">
+                        <i class="fa-brands fa-line mr-2"></i>LINE 一鍵登入
+                    </a>
+                    <a href="https://starluck-login.url" target="_blank" class="bg-secondary-cta text-white px-8 py-3 rounded-md hover:bg-secondary-cta/90 transition-colors text-lg">
+                        <i class="fa-solid fa-globe mr-2"></i>網頁登入
+                    </a>
+                </div>
+                
+                <!-- QR Code 登入 -->
+                <div class="max-w-xs mx-auto bg-white p-3 rounded-md shadow-sm">
+                    <img src="https://via.placeholder.com/200" alt="遊戲登入QR碼" class="w-full">
+                    <p class="text-sm text-neutral-text/70 mt-2">掃描QR碼快速進入遊戲</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 區塊2：活動輪播 -->
+        <section id="event" class="py-10">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold text-neutral-text mb-6 text-center">最新活動</h2>
+                
+                <!-- 這裡省略其餘內容 -->
+            </div>
+        </section>
+
+        <!-- 區塊3：合作夥伴 -->
+        <section class="py-10 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold text-neutral-text mb-8 text-center">合作夥伴</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-items-center">
+                    <img src="https://via.placeholder.com/120x60?text=合作夥伴1" alt="合作夥伴1" class="h-10 object-contain">
+                    <img src="https://via.placeholder.com/120x60?text=合作夥伴2" alt="合作夥伴2" class="h-10 object-contain">
+                    <img src="https://via.placeholder.com/120x60?text=合作夥伴3" alt="合作夥伴3" class="h-10 object-contain">
+                    <img src="https://via.placeholder.com/120x60?text=合作夥伴4" alt="合作夥伴4" class="h-10 object-contain">
+                    <img src="https://via.placeholder.com/120x60?text=合作夥伴5" alt="合作夥伴5" class="h-10 object-contain">
+                    <img src="https://via.placeholder.com/120x60?text=合作夥伴6" alt="合作夥伴6" class="h-10 object-contain">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-neutral-text text-white py-8">
+        <div class="container mx-auto px-4 text-center text-sm text-white/70">
+            <p>版權所有 © 2025 星運娛樂有限公司 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- 右側浮動 QR Code -->
+    <div class="fixed right-4 bottom-4 hidden md:flex flex-col gap-3 z-40">
+        <div class="bg-white p-3 rounded-lg shadow-lg">
+            <img src="https://via.placeholder.com/150" alt="遊戲入口QR碼" class="w-36 h-auto">
+            <p class="text-xs text-center text-neutral-text mt-1">掃描進入遊戲</p>
+        </div>
+        
+        <!-- 返回頂部 -->
+        <button id="back-to-top" class="w-12 h-12 bg-secondary-cta text-white rounded-full flex items-center justify-center shadow-lg hover:bg-secondary-cta/90 transition-colors">
+            <i class="fa-solid fa-chevron-up"></i>
+        </button>
     </div>
-  </div>
-</nav>
 
-<!-- Hero 區塊 -->
-<section class="hero">
-  <h1>星運娛樂城推出<br>鑽石幣 讓你一比一的押!!</h1>
-  <p>點擊下方按鈕，立即加入或開始遊戲！</p>
-  <div class="qr-area">
-    <p>掃描 QR Code 加入 LINE</p>
-    <img src="https://via.placeholder.com/120x120.png?text=QR" alt="QR code" class="mb-3">
-    <div>
-      <a href="#" class="btn btn-line">加入 LINE 好友</a>
-      <a href="#" class="btn btn-play">網頁版立即玩</a>
-    </div>
-  </div>
-</section>
-
-<!-- Footer 區 -->
-<footer>
-  <p>本網站內容僅供娛樂用途，請理性消費。未滿18歲者請勿使用。</p>
-  <p>© 2025 星運娛樂城 All rights reserved.</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS 互動邏輯 -->
+    <script src="script.js"></script>
 </body>
 </html>
