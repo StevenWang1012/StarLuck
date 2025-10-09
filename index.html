@@ -16,7 +16,7 @@
                         primary: {
                             red: '#E63946',
                             gold: '#FFD700',
-                            warm: '#FF9F1C'
+                            warm: '#FF9F9C'
                         },
                         secondary: {
                             line: '#06C755',
@@ -34,23 +34,26 @@
             }
         }
     </script>
+    <!-- 共用樣式 -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="font-sans text-neutral-text bg-neutral-lightBg">
     <!-- 頂部導覽列 -->
     <header class="sticky top-0 z-50 bg-white shadow-sm">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <!-- LOGO -->
-            <a href="#" class="flex items-center gap-2">
+            <a href="index.html" class="flex items-center gap-2">
                 <span class="text-primary-gold text-2xl font-bold">STARLUCK</span>
                 <span class="text-neutral-text text-sm">星運娛樂城</span>
             </a>
 
             <!-- 桌面端導覽選單 -->
             <nav class="hidden md:flex items-center gap-6">
-                <a href="#game-intro" class="text-neutral-text hover:text-primary-red transition-colors">遊戲介紹</a>
-                <a href="#newbie" class="text-neutral-text hover:text-primary-red transition-colors">新手專區</a>
-                <a href="#recharge" class="text-neutral-text hover:text-primary-red transition-colors">儲值教學</a>
-                <a href="#customer" class="text-neutral-text hover:text-primary-red transition-colors">客服中心</a>
+                <a href="index.html" class="text-primary-red font-medium">首頁</a>
+                <a href="game-intro.html" class="text-neutral-text hover:text-primary-red transition-colors">遊戲介紹</a>
+                <a href="newbie.html" class="text-neutral-text hover:text-primary-red transition-colors">新手專區</a>
+                <a href="recharge.html" class="text-neutral-text hover:text-primary-red transition-colors">儲值教學</a>
+                <a href="customer.html" class="text-neutral-text hover:text-primary-red transition-colors">客服中心</a>
                 
                 <!-- 桌面端快速登入按鈕 -->
                 <div class="flex gap-3 ml-4">
@@ -72,10 +75,11 @@
         <!-- 手機端導覽選單（預設隱藏） -->
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
             <div class="container mx-auto px-4 py-3 flex flex-col gap-4">
-                <a href="#game-intro" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">遊戲介紹</a>
-                <a href="#newbie" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">新手專區</a>
-                <a href="#recharge" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">儲值教學</a>
-                <a href="#customer" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">客服中心</a>
+                <a href="index.html" class="text-primary-red py-2 border-b border-gray-100">首頁</a>
+                <a href="game-intro.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">遊戲介紹</a>
+                <a href="newbie.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">新手專區</a>
+                <a href="recharge.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">儲值教學</a>
+                <a href="customer.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">客服中心</a>
                 
                 <!-- 手機端快速登入按鈕 -->
                 <div class="flex flex-col gap-3 pt-2">
@@ -92,7 +96,7 @@
 
     <!-- 首頁面主體 -->
     <main>
-        <!-- 區塊1：快速登入（已移除QR碼） -->
+        <!-- 區塊1：快速登入 -->
         <section class="py-12 bg-gradient-to-r from-primary-warm/20 to-primary-red/10">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral-text mb-4">星運娛樂城 - 立即開啟遊戲</h2>
@@ -164,385 +168,6 @@
                     <img src="https://picsum.photos/id/4/120/60" alt="合作夥伴4" class="h-10 object-contain">
                     <img src="https://picsum.photos/id/5/120/60" alt="合作夥伴5" class="h-10 object-contain">
                     <img src="https://picsum.photos/id/6/120/60" alt="合作夥伴6" class="h-10 object-contain">
-                </div>
-            </div>
-        </section>
-
-        <!-- 遊戲介紹 -->
-        <section id="game-intro" class="py-12 bg-neutral-lightBg">
-            <div class="container mx-auto px-4">
-                <h2 class="text-2xl font-bold text-neutral-text mb-8 text-center">精選遊戲</h2>
-                
-                <!-- 遊戲列表：桌面端5x4，手機端3x7 -->
-                <div class="grid grid-cols-3 md:grid-cols-5 gap-4">
-                    <!-- 遊戲項（共20個） -->
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/20/150/200" alt="幸運老虎機" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">幸運老虎機</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/21/150/200" alt="德州撲克" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">德州撲克</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/22/150/200" alt="百家樂" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">百家樂</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/23/150/200" alt="捕魚達人" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">捕魚達人</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/24/150/200" alt="水果機" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">水果機</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/25/150/200" alt="麻將" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">麻將</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/26/150/200" alt="鬥地主" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">鬥地主</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/27/150/200" alt="牛牛" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">牛牛</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/28/150/200" alt="梭哈" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">梭哈</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/29/150/200" alt="五張牌" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">五張牌</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/30/150/200" alt="碰碰車" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">碰碰車</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/31/150/200" alt="水滸傳" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">水滸傳</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/32/150/200" alt="大鬧天宮" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">大鬧天宮</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/33/150/200" alt="絕代雙驕" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">絕代雙驕</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/34/150/200" alt="三國風雲" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">三國風雲</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/35/150/200" alt="西遊記" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">西遊記</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/36/150/200" alt="封神榜" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">封神榜</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/37/150/200" alt="紅樓夢" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">紅樓夢</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/38/150/200" alt="三國演義" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">三國演義</p>
-                    </div>
-                    <div class="game-item bg-white rounded-lg shadow-sm p-3 hover:shadow-md transition-shadow cursor-pointer">
-                        <img src="https://picsum.photos/id/39/150/200" alt="水滸傳" class="w-full h-32 object-cover rounded mb-2">
-                        <p class="text-center text-neutral-text text-sm">水滸傳</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 新手專區 -->
-        <section id="newbie" class="py-12 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-2xl font-bold text-neutral-text mb-8 text-center">新手專區</h2>
-                
-                <!-- 新手專區Tab切換 -->
-                <div class="max-w-4xl mx-auto">
-                    <div class="border-b border-gray-200 mb-6">
-                        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="newbie-tabs" role="tablist">
-                            <li class="mr-2" role="presentation">
-                                <button class="inline-block p-4 border-b-2 border-secondary-cta text-secondary-cta rounded-t-lg" id="intro-tab" data-tabs-target="#intro" type="button" role="tab" aria-selected="true">介面說明</button>
-                            </li>
-                            <li class="mr-2" role="presentation">
-                                <button class="inline-block p-4 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 rounded-t-lg" id="vip-tab" data-tabs-target="#vip" type="button" role="tab" aria-selected="false">VIP說明</button>
-                            </li>
-                            <li role="presentation">
-                                <button class="inline-block p-4 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 rounded-t-lg" id="guild-tab" data-tabs-target="#guild" type="button" role="tab" aria-selected="false">公會說明</button>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Tab內容1：介面說明 -->
-                    <div id="intro" class="newbie-tab-content" role="tabpanel" aria-labelledby="intro-tab">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <!-- 手機介面圖 -->
-                            <div class="md:w-1/2">
-                                <img src="https://picsum.photos/id/0/300/600" alt="手機遊戲介面" class="w-full h-auto rounded-lg shadow-sm">
-                            </div>
-                            <!-- 號碼說明文字 -->
-                            <div class="md:w-1/2 space-y-4">
-                                <div>
-                                    <span class="inline-block w-6 h-6 bg-primary-red text-white rounded-full text-center text-sm mr-2">1</span>
-                                    <span class="text-neutral-text">遊戲大廳入口：點擊進入所有遊戲列表</span>
-                                </div>
-                                <div>
-                                    <span class="inline-block w-6 h-6 bg-primary-red text-white rounded-full text-center text-sm mr-2">2</span>
-                                    <span class="text-neutral-text">商城按鈕：進入儲值與道具購買頁面</span>
-                                </div>
-                                <div>
-                                    <span class="inline-block w-6 h-6 bg-primary-red text-white rounded-full text-center text-sm mr-2">3</span>
-                                    <span class="text-neutral-text">個人中心：查看VIP等級、資產與訊息</span>
-                                </div>
-                                <div>
-                                    <span class="inline-block w-6 h-6 bg-primary-red text-white rounded-full text-center text-sm mr-2">4</span>
-                                    <span class="text-neutral-text">公會入口：進入公會頁面（VIP1及以上可見）</span>
-                                </div>
-                                <div>
-                                    <span class="inline-block w-6 h-6 bg-primary-red text-white rounded-full text-center text-sm mr-2">5</span>
-                                    <span class="text-neutral-text">客服按鈕：一鍵聯繫線上客服</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Tab內容2：VIP說明 -->
-                    <div id="vip" class="newbie-tab-content hidden" role="tabpanel" aria-labelledby="vip-tab">
-                        <div class="space-y-6">
-                            <!-- VIP規則文案 -->
-                            <div class="text-neutral-text">
-                                <p class="mb-2">新註冊玩家VIP等級為VIP1，綁定手機門號後可升為VIP2，首儲後即保有VIP3以上等級。</p>
-                                <p class="mb-2">VIP3以上等級提升規則：當前【累積儲值】或【累積投注】達到新等級條件，立即升級，時效至當月月底；每月1日凌晨0點會依據前1個月的【累積儲值】與【累積投注】，調整當月份的VIP等級，時效至當月月底。</p>
-                            </div>
-                            
-                            <!-- VIP權益表格 -->
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-sm text-left text-neutral-text border-collapse">
-                                    <thead class="text-xs text-white uppercase bg-secondary-cta">
-                                        <tr>
-                                            <th scope="col" class="px-6 py-3 rounded-l-lg">權益項目</th>
-                                            <th scope="col" class="px-6 py-3">VIP1</th>
-                                            <th scope="col" class="px-6 py-3">VIP2</th>
-                                            <th scope="col" class="px-6 py-3">VIP3</th>
-                                            <th scope="col" class="px-6 py-3">VIP4</th>
-                                            <th scope="col" class="px-6 py-3">VIP5</th>
-                                            <th scope="col" class="px-6 py-3 rounded-r-lg">VIP6</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="bg-white border-b hover:bg-gray-50">
-                                            <th scope="row" class="px-6 py-4 font-medium">接收贈禮</th>
-                                            <td class="px-6 py-4">✕</td>
-                                            <td class="px-6 py-4">○</td>
-                                            <td class="px-6 py-4">○</td>
-                                            <td class="px-6 py-4">○</td>
-                                            <td class="px-6 py-4">○</td>
-                                            <td class="px-6 py-4">○</td>
-                                        </tr>
-                                        <tr class="bg-white border-b hover:bg-gray-50">
-                                            <th scope="row" class="px-6 py-4 font-medium">贈送點數</th>
-                                            <td class="px-6 py-4">✕</td>
-                                            <td class="px-6 py-4">✕</td>
-                                            <td class="px-6 py-4">○</td>
-                                            <td class="px-6 py-4">○</td>
-                                            <td class="px-6 py-4">○</td>
-                                            <td class="px-6 py-4">○</td>
-                                        </tr>
-                                        <tr class="bg-white border-b hover:bg-gray-50">
-                                            <th scope="row" class="px-6 py-4 font-medium">每日送禮額度</th>
-                                            <td class="px-6 py-4">✕</td>
-                                            <td class="px-6 py-4">✕</td>
-                                            <td class="px-6 py-4">8萬</td>
-                                            <td class="px-6 py-4">50萬</td>
-                                            <td class="px-6 py-4">200萬</td>
-                                            <td class="px-6 py-4">無限</td>
-                                        </tr>
-                                        <tr class="bg-white border-b hover:bg-gray-50">
-                                            <th scope="row" class="px-6 py-4 font-medium">創立公會</th>
-                                            <td class="px-6 py-4">✕</td>
-                                            <td class="px-6 py-4">✕</td>
-                                            <td class="px-6 py-4">✕</td>
-                                            <td class="px-6 py-4">✕</td>
-                                            <td class="px-6 py-4">✕</td>
-                                            <td class="px-6 py-4">○</td>
-                                        </tr>
-                                        <tr class="bg-white hover:bg-gray-50">
-                                            <th scope="row" class="px-6 py-4 font-medium rounded-l-lg">發財金額度</th>
-                                            <td class="px-6 py-4">100</td>
-                                            <td class="px-6 py-4">200</td>
-                                            <td class="px-6 py-4">300</td>
-                                            <td class="px-6 py-4">500</td>
-                                            <td class="px-6 py-4">600</td>
-                                            <td class="px-6 py-4 rounded-r-lg">1,000</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Tab內容3：公會說明 -->
-                    <div id="guild" class="newbie-tab-content hidden" role="tabpanel" aria-labelledby="guild-tab">
-                        <div class="space-y-6">
-                            <!-- 公會規則文案 -->
-                            <div class="text-neutral-text">
-                                <p class="mb-2">玩家可自行加入共同志向的公會，VIP1即可加入公會，並可隨意選擇任何公會加入；VIP6玩家只需繳交100萬點數即可建立公會。</p>
-                                <p>公會等級提升需累積指定金幣，等級越高可容納人數越多。</p>
-                            </div>
-                            
-                            <!-- 公會等級表格 -->
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-sm text-left text-neutral-text border-collapse">
-                                    <thead class="text-xs text-white uppercase bg-primary-warm">
-                                        <tr>
-                                            <th scope="col" class="px-6 py-3 rounded-l-lg">公會等級</th>
-                                            <th scope="col" class="px-6 py-3">可容納人數</th>
-                                            <th scope="col" class="px-6 py-3 rounded-r-lg">升級條件（累積金幣）</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4">等級0</td><td class="px-6 py-4">30人</td><td class="px-6 py-4">無</td></tr>
-                                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4">等級1</td><td class="px-6 py-4">40人</td><td class="px-6 py-4">8萬</td></tr>
-                                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4">等級2</td><td class="px-6 py-4">50人</td><td class="px-6 py-4">28萬</td></tr>
-                                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4">等級3</td><td class="px-6 py-4">60人</td><td class="px-6 py-4">58萬</td></tr>
-                                        <tr class="bg-white border-b hover:bg-gray-50"><td class="px-6 py-4">等級4</td><td class="px-6 py-4">70人</td><td class="px-6 py-4">288萬</td></tr>
-                                        <tr class="bg-white hover:bg-gray-50"><td class="px-6 py-4 rounded-l-lg">等級5+</td><td class="px-6 py-4">80-200人</td><td class="px-6 py-4 rounded-r-lg">888萬-1億</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                            <!-- 公會職位權限 -->
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div class="bg-neutral-lightBg p-4 rounded-lg">
-                                    <h4 class="font-bold text-primary-red mb-2">會長權限</h4>
-                                    <ul class="text-sm space-y-1 text-neutral-text">
-                                        <li>• 提領公會金幣（≥10萬，凍結8日）</li>
-                                        <li>• 轉讓/解散公會</li>
-                                        <li>• 任命副會⻑</li>
-                                        <li>• 群發私信/自定義按鈕</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-neutral-lightBg p-4 rounded-lg">
-                                    <h4 class="font-bold text-primary-red mb-2">副會⻑權限</h4>
-                                    <ul class="text-sm space-y-1 text-neutral-text">
-                                        <li>• 審核新成員加入</li>
-                                        <li>• 剔除公會成員</li>
-                                        <li>• 群發私信</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-neutral-lightBg p-4 rounded-lg">
-                                    <h4 class="font-bold text-primary-red mb-2">成員權限</h4>
-                                    <ul class="text-sm space-y-1 text-neutral-text">
-                                        <li>• 查看公會金幣/貢獻度</li>
-                                        <li>• 加入/退出公會（退出後24小時可再加入）</li>
-                                        <li>• 查看公會自定義按鈕</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 儲值教學 -->
-        <section id="recharge" class="py-12 bg-neutral-lightBg">
-            <div class="container mx-auto px-4">
-                <h2 class="text-2xl font-bold text-neutral-text mb-8 text-center">儲值教學</h2>
-                
-                <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-sm">
-                    <!-- 儲值活動文案 -->
-                    <div class="text-neutral-text mb-8">
-                        <p class="mb-2 text-primary-red font-medium">星運娛樂城每日儲值加碼活動，點數回饋最高可達12%！</p>
-                        <p class="mb-2">遊戲中不定時跳出限量優惠提示，進入商城有機會免費領取【好運發財金】。</p>
-                    </div>
-                    
-                    <!-- 儲值步驟 -->
-                    <div class="space-y-8">
-                        <!-- 步驟1 -->
-                        <div class="flex flex-col md:flex-row gap-6 items-center">
-                            <div class="md:w-1/4 text-center">
-                                <div class="inline-block w-10 h-10 bg-secondary-cta text-white rounded-full flex items-center justify-center font-bold mb-2">1</div>
-                                <h4 class="font-bold text-neutral-text">掃描QR碼</h4>
-                            </div>
-                            <div class="md:w-3/4">
-                                <p class="text-neutral-text mb-3">掃描下方QR碼，開啟星運娛樂城商城頁面。</p>
-                                <div class="inline-block bg-white p-3 rounded-md shadow-sm">
-                                    <img src="https://picsum.photos/id/10/150" alt="儲值QR碼" class="w-36 h-auto">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 步驟2 -->
-                        <div class="flex flex-col md:flex-row gap-6 items-center">
-                            <div class="md:w-1/4 text-center">
-                                <div class="inline-block w-10 h-10 bg-secondary-cta text-white rounded-full flex items-center justify-center font-bold mb-2">2</div>
-                                <h4 class="font-bold text-neutral-text">進入商城</h4>
-                            </div>
-                            <div class="md:w-3/4">
-                                <p class="text-neutral-text mb-3">頁面跳轉至商城，或在遊戲大廳中下方點擊「商城」按鈕。</p>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <img src="https://picsum.photos/id/11/300x500" alt="遊戲大廳介面" class="w-full h-auto rounded">
-                                    <img src="https://picsum.photos/id/12/300x500" alt="商城入口介面" class="w-full h-auto rounded">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 步驟3 -->
-                        <div class="flex flex-col md:flex-row gap-6 items-center">
-                            <div class="md:w-1/4 text-center">
-                                <div class="inline-block w-10 h-10 bg-secondary-cta text-white rounded-full flex items-center justify-center font-bold mb-2">3</div>
-                                <h4 class="font-bold text-neutral-text">完成儲值</h4>
-                            </div>
-                            <div class="md:w-3/4">
-                                <p class="text-neutral-text mb-3">選擇儲值管道（如LINE Pay、信用卡）與商品，按照提示完成支付。</p>
-                                <img src="https://picsum.photos/id/13/600x300" alt="儲值選擇介面" class="w-full h-auto rounded">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 客服中心 -->
-        <section id="customer" class="py-12 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-2xl font-bold text-neutral-text mb-8 text-center">客服中心</h2>
-                
-                <!-- 客服中心Tab切換 -->
-                <div class="max-w-4xl mx-auto">
-                    <div class="border-b border-gray-200 mb-6">
-                        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="customer-tabs" role="tablist">
-                            <li class="mr-2" role="presentation">
-                                <a href="#" class="inline-block p-4 border-b-2 border-secondary-cta text-secondary-cta rounded-t-lg">服務條款</a>
-                            </li>
-                            <li class="mr-2" role="presentation">
-                                <a href="#" class="inline-block p-4 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 rounded-t-lg">隱私條款</a>
-                            </li>
-                            <li class="mr-2" role="presentation">
-                                <a href="#" class="inline-block p-4 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 rounded-t-lg">遊戲規章</a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#" class="inline-block p-4 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 rounded-t-lg">停權列表</a>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <!-- 服務條款內容 -->
-                    <div class="text-neutral-text space-y-4">
-                        <p>1. 本服務條款（以下簡稱「條款」）係星運娛樂城（以下簡稱「本平台」）與使用者（以下簡稱「您」）就使用本平台服務所訂立之契約，請您於使用前仔細閱讀並同意本條款之全部內容。</p>
-                        <p>2. 您使用本平台服務，即表示您已充分了解並同意接受本條款之所有約定，包括本平台隨時修訂之內容。若您不同意本條款，請勿使用本平台服務。</p>
-                        <p>3. 本平台有權根據法律法規或運營需求修訂本條款，修訂後的條款將於公告後生效，您繼續使用本服務即視為同意修訂後的條款。</p>
-                        <!-- 更多條款內容... -->
-                    </div>
                 </div>
             </div>
         </section>
