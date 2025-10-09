@@ -1,71 +1,198 @@
-
 <!DOCTYPE html>
-
 <html lang="zh-TW">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>新手專區 - Starluck 星運娛樂城</title>
-<!-- 引入 CDN 資源：Tailwind CSS、Font Awesome（圖示） -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
-<!-- Tailwind 自定義配置 -->
-<script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            red: '#E63946',
-                            gold: '#FFD700',
-                            warm: '#FF9F9C'
-                        },
-                        secondary: {
-                            line: '#06C755',
-                            cta: '#1E88E5'
-                        },
-                        neutral: {
-                            text: '#333333',
-                            lightBg: '#F9F9F9'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新手專區 - Starluck 星運娛樂城</title>
+
+  <!-- Tailwind CSS & Font Awesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              red: '#E63946',
+              gold: '#FFD700',
+              warm: '#FF9F9C'
+            },
+            secondary: {
+              line: '#06C755',
+              cta: '#1E88E5'
+            },
+            neutral: {
+              text: '#333333',
+              lightBg: '#F9F9F9'
             }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
         }
-    </script>
-<!-- 共用樣式 -->
-<link href="style.css" rel="stylesheet"/>
+      }
+    }
+  </script>
+
+  <!-- 共用 CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="font-sans text-neutral-text bg-neutral-lightBg">
-<!-- 頂部導覽列 -->
-<div id="header-placeholder"></div>
-<!-- 頁面主體 -->
-<main>
-<!-- 新手專區 -->
-<!-- ... 中略 (內容完整) ... -->
-</main>
-<!-- 頁尾 -->
-<!-- ... 已包含頁尾與浮動導流區 ... -->
-<!-- 引入交互邏輯JS -->
-<script>
-fetch('header.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('header-placeholder').innerHTML = data;
 
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+  <!-- 導覽列載入容器 -->
+  <div id="header-placeholder"></div>
 
-    if (hamburgerBtn && mobileMenu) {
-      hamburgerBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+  <main>
+    <!-- 新手專區內容區塊 -->
+    <section id="newbie" class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold text-neutral-text mb-8 text-center">新手專區</h2>
+
+        <!-- Tabs 選單 -->
+        <div class="max-w-4xl mx-auto">
+          <div class="border-b border-gray-200 mb-6">
+            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="newbie-tabs" role="tablist">
+              <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 border-b-2 border-secondary-cta text-secondary-cta rounded-t-lg" id="intro-tab" data-tabs-target="#intro" type="button" role="tab" aria-selected="true">介面說明</button>
+              </li>
+              <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 rounded-t-lg" id="vip-tab" data-tabs-target="#vip" type="button" role="tab" aria-selected="false">VIP說明</button>
+              </li>
+              <li role="presentation">
+                <button class="inline-block p-4 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 rounded-t-lg" id="guild-tab" data-tabs-target="#guild" type="button" role="tab" aria-selected="false">公會說明</button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tab 1：介面說明 -->
+          <div id="intro" class="newbie-tab-content" role="tabpanel" aria-labelledby="intro-tab">
+            <div class="flex flex-col md:flex-row gap-6">
+              <div class="md:w-1/2">
+                <img src="https://picsum.photos/id/0/300/600" alt="介面圖" class="w-full h-auto rounded-lg shadow-sm" />
+              </div>
+              <div class="md:w-1/2 space-y-4">
+                <div><span class="inline-block w-6 h-6 bg-primary-red text-white rounded-full text-center text-sm mr-2">1</span> 遊戲大廳入口：點擊進入所有遊戲</div>
+                <div><span class="inline-block w-6 h-6 bg-primary-red text-white rounded-full text-center text-sm mr-2">2</span> 商城按鈕：儲值與道具購買</div>
+                <div><span class="inline-block w-6 h-6 bg-primary-red text-white rounded-full text-center text-sm mr-2">3</span> 個人中心：VIP等級與資產</div>
+                <div><span class="inline-block w-6 h-6 bg-primary-red text-white rounded-full text-center text-sm mr-2">4</span> 公會入口：VIP1可見</div>
+                <div><span class="inline-block w-6 h-6 bg-primary-red text-white rounded-full text-center text-sm mr-2">5</span> 客服按鈕：一鍵聯繫客服</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2：VIP說明 -->
+          <div id="vip" class="newbie-tab-content hidden" role="tabpanel" aria-labelledby="vip-tab">
+            <div class="space-y-6">
+              <div>
+                <p>新玩家註冊即為 VIP1，綁定手機號可升至 VIP2，首儲即可晉升 VIP3。</p>
+                <p>VIP3 以上每月根據累積儲值或投注金額調整等級，並維持至月底。</p>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-neutral-text border-collapse">
+                  <thead class="text-xs text-white uppercase bg-secondary-cta">
+                    <tr>
+                      <th class="px-6 py-3 rounded-l-lg">權益項目</th>
+                      <th class="px-6 py-3">VIP1</th>
+                      <th class="px-6 py-3">VIP2</th>
+                      <th class="px-6 py-3">VIP3</th>
+                      <th class="px-6 py-3">VIP4</th>
+                      <th class="px-6 py-3">VIP5</th>
+                      <th class="px-6 py-3 rounded-r-lg">VIP6</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="bg-white border-b hover:bg-gray-50"><th class="px-6 py-4 font-medium">接收贈禮</th><td>✕</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+                    <tr class="bg-white border-b hover:bg-gray-50"><th class="px-6 py-4 font-medium">贈送點數</th><td>✕</td><td>✕</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+                    <tr class="bg-white border-b hover:bg-gray-50"><th class="px-6 py-4 font-medium">每日送禮額度</th><td>✕</td><td>✕</td><td>8萬</td><td>50萬</td><td>200萬</td><td>無限</td></tr>
+                    <tr class="bg-white border-b hover:bg-gray-50"><th class="px-6 py-4 font-medium">創立公會</th><td>✕</td><td>✕</td><td>✕</td><td>✕</td><td>✕</td><td>○</td></tr>
+                    <tr class="bg-white hover:bg-gray-50"><th class="px-6 py-4 font-medium rounded-l-lg">發財金額度</th><td>100</td><td>200</td><td>300</td><td>500</td><td>600</td><td class="rounded-r-lg">1,000</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 3：公會說明 -->
+          <div id="guild" class="newbie-tab-content hidden" role="tabpanel" aria-labelledby="guild-tab">
+            <div class="space-y-6">
+              <p>VIP1以上可自由加入公會，VIP6玩家可用100萬點數創建。</p>
+              <p>公會等級依累積金幣提升，可容納人數也隨之增加。</p>
+
+              <table class="w-full text-sm text-left text-neutral-text border-collapse">
+                <thead class="text-xs text-white uppercase bg-primary-warm">
+                  <tr>
+                    <th class="px-6 py-3 rounded-l-lg">公會等級</th>
+                    <th class="px-6 py-3">可容納人數</th>
+                    <th class="px-6 py-3 rounded-r-lg">升級條件</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="bg-white border-b"><td class="px-6 py-4">等級0</td><td class="px-6 py-4">30人</td><td class="px-6 py-4">無</td></tr>
+                  <tr class="bg-white border-b"><td class="px-6 py-4">等級1</td><td class="px-6 py-4">40人</td><td class="px-6 py-4">8萬</td></tr>
+                  <tr class="bg-white border-b"><td class="px-6 py-4">等級2</td><td class="px-6 py-4">50人</td><td class="px-6 py-4">28萬</td></tr>
+                  <tr class="bg-white border-b"><td class="px-6 py-4">等級3</td><td class="px-6 py-4">60人</td><td class="px-6 py-4">58萬</td></tr>
+                  <tr class="bg-white border-b"><td class="px-6 py-4">等級4</td><td class="px-6 py-4">70人</td><td class="px-6 py-4">288萬</td></tr>
+                  <tr class="bg-white"><td class="px-6 py-4 rounded-l-lg">等級5+</td><td class="px-6 py-4">80-200人</td><td class="px-6 py-4 rounded-r-lg">888萬 ~ 1億</td></tr>
+                </tbody>
+              </table>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-neutral-lightBg p-4 rounded-lg">
+                  <h4 class="font-bold text-primary-red mb-2">會長權限</h4>
+                  <ul class="text-sm list-disc ml-5">
+                    <li>提領金幣</li>
+                    <li>轉讓 / 解散</li>
+                    <li>任命副會長</li>
+                    <li>群發私信</li>
+                  </ul>
+                </div>
+                <div class="bg-neutral-lightBg p-4 rounded-lg">
+                  <h4 class="font-bold text-primary-red mb-2">副會長權限</h4>
+                  <ul class="text-sm list-disc ml-5">
+                    <li>審核成員</li>
+                    <li>剔除成員</li>
+                    <li>群發私信</li>
+                  </ul>
+                </div>
+                <div class="bg-neutral-lightBg p-4 rounded-lg">
+                  <h4 class="font-bold text-primary-red mb-2">成員權限</h4>
+                  <ul class="text-sm list-disc ml-5">
+                    <li>查看資料</li>
+                    <li>自由加入/退出</li>
+                    <li>使用按鈕功能</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer 建議用共用 footer.html 匯入方式處理（類似 header） -->
+  <!-- ... -->
+
+  <!-- 自動載入 header.html -->
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (hamburgerBtn && mobileMenu) {
+          hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
       });
-    }
-  })
-  .catch(err => console.error('載入 header.html 失敗:', err));
-</script><script src="script.js"></script>
+  </script>
 </body>
 </html>
