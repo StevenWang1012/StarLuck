@@ -1,9 +1,9 @@
-/* 基础样式补充（Tailwind 未覆盖的细节） */
+/* 基礎樣式補充（Tailwind 未覆蓋的細節） */
 body {
-    scroll-behavior: smooth; /* 平滑滚动 */
+    scroll-behavior: smooth; /* 平滑滾動 */
 }
 
-/* 游戏卡片模态框样式（JS动态创建用） */
+/* 遊戲卡片模態框樣式（JS動態創建用） */
 .modal {
     position: fixed;
     inset: 0;
@@ -22,15 +22,15 @@ body {
     padding: 1.5rem;
 }
 
-/* 响应式调整：小屏幕优化 */
+/* 回應式調整：小螢幕優化 */
 @media (max-width: 640px) {
     .game-item {
         padding: 0.75rem;
     }
     .game-item img {
-        height: 6rem; /* 手机端游戏图片高度调整 */
+        height: 6rem; /* 手機端遊戲圖片高度調整 */
     }
     footer .grid {
-        gap: 2rem; /* 手机端页尾间距调整 */
+        gap: 2rem; /* 手機端頁尾間距調整 */
     }
 }
