@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Tailwind 自定義配置 -->
     <script>
+    // 載入 header.html 進入 #header-placeholder
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('載入 header.html 失敗：', error));    
         tailwind.config = {
             theme: {
                 extend: {
