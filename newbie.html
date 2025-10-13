@@ -41,11 +41,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="font-sans text-neutral-text bg-neutral-lightBg">
-
   <!-- 導覽列載入容器 -->
   <div id="header-placeholder"></div>
 
-  <main>
+  <!-- 修正被導覽列遮住的問題 -->
+  <main class="pt-36">
+
     <!-- 新手專區內容區塊 -->
     <section id="newbie" class="py-12 bg-white">
       <div class="container mx-auto px-4">
@@ -175,7 +176,97 @@
   </main>
 
   <!-- footer 建議用共用 footer.html 匯入方式處理（類似 header） -->
-  <!-- ... -->
+  <!-- ✅ 頁尾 footer -->
+  <footer class="bg-neutral-text text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+        <div class="md:col-span-2">
+          <h4 class="text-lg font-bold mb-4 text-primary-gold">平台資訊</h4>
+          <ul class="space-y-2 text-sm">
+            <li><i class="fa-solid fa-clock mr-2"></i>維護時間：每週四 02:00 ~ 04:00（暫定）</li>
+            <li><i class="fa-solid fa-envelope mr-2"></i>客服信箱：service@starluck.xx</li>
+            <li><i class="fa-solid fa-headset mr-2"></i>客服時間：09:00 ~ 23:00</li>
+          </ul>
+        </div>
+        <div class="md:col-span-3">
+          <h4 class="text-lg font-bold mb-4 text-primary-gold">官方社交</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="https://line.me/R/ti/p/@starluck" target="_blank" class="flex items-center hover:text-primary-gold transition-colors">
+                <i class="fa-brands fa-line mr-2 text-secondary-line"></i>官方 LINE：@starluck
+              </a>
+            </li>
+            <li>
+              <a href="https://facebook.com/starluck" target="_blank" class="flex items-center hover:text-primary-gold transition-colors">
+                <i class="fa-brands fa-facebook mr-2 text-blue-400"></i>FB 粉絲團：星運娛樂城
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/20 pt-6 pb-4">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center font-bold">18+</div>
+            <p class="text-sm max-w-md">本遊戲含部分成人內容，未滿18歲請勿進入；內含棋牌益智娛樂，非現金賭博。</p>
+          </div>
+          <div class="flex flex-wrap gap-3 text-sm">
+            <a href="#" class="hover:text-primary-gold">服務條款</a>
+            <a href="#" class="hover:text-primary-gold">隱私條款</a>
+            <a href="#" class="hover:text-primary-gold">遊戲規章</a>
+            <a href="#" class="hover:text-primary-gold">停權名單</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/20 pt-4 text-center text-sm text-white/70">
+        <p>Copyright © 2025 All Rights Reserved 星運娛樂有限公司</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ✅ 右下角浮動導流 QR 區塊 -->
+  <div class="fixed right-4 bottom-4 hidden md:flex flex-col gap-3 z-40">
+    <div class="bg-white p-3 rounded-lg shadow-lg">
+      <img src="https://i.redd.it/nm32z1y2nq251.png" alt="遊戲入口 QR code" class="w-36 h-auto">
+      <p class="text-xs text-center text-neutral-text mt-1">掃碼進入遊戲</p>
+    </div>
+    <button id="back-to-top" class="w-12 h-12 bg-secondary-cta text-white rounded-full flex items-center justify-center shadow-lg hover:bg-secondary-cta/90 transition-colors">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+  </div>
+
+  <!-- ✅ 載入 header.html -->
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (hamburgerBtn && mobileMenu) {
+          hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
+      });
+  </script>
+
+  <!-- ✅ 回到頂部按鈕邏輯 -->
+  <script>
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.remove('hidden');
+      } else {
+        backToTop.classList.add('hidden');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 
   <!-- 自動載入 header.html -->
   <script>
