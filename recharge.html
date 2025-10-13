@@ -4,46 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>儲值教學 - Starluck 星運娛樂城</title>
-    <!-- 引入 CDN 資源：Tailwind CSS、Font Awesome（圖示） -->
+    
+    <!-- 引入 Tailwind 與 Font Awesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <!-- Tailwind 自定義配置 -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            red: '#E63946',
-                            gold: '#FFD700',
-                            warm: '#FF9F9C'
-                        },
-                        secondary: {
-                            line: '#06C755',
-                            cta: '#1E88E5'
-                        },
-                        neutral: {
-                            text: '#333333',
-                            lightBg: '#F9F9F9'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
+    // ✅ 在這裡加入載入 header.html 的 JS
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+
+            // 加入手機選單控制邏輯
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (hamburgerBtn && mobileMenu) {
+                hamburgerBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        })
+        .catch(error => console.error('載入 header.html 失敗：', error));
+
+    // Tailwind 主題設定
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: { red: '#E63946', gold: '#FFD700', warm: '#FF9F9C' },
+                    secondary: { line: '#06C755', cta: '#1E88E5' },
+                    neutral: { text: '#333333', lightBg: '#F9F9F9' }
+                },
+                fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
             }
         }
+    }
     </script>
+
     <!-- 共用樣式 -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="font-sans text-neutral-text bg-neutral-lightBg">
-    <!-- 頂部導覽列 -->
-<div id="header-placeholder"></div>
+
+    <!-- ✅ 頂部導覽列載入區 -->
+    <div id="header-placeholder"></div>
 
     <!-- 頁面主體 -->
-    <main>
-        <!-- 儲值教學 -->
+    <main class="pt-24"> <!-- 加上 pt-24，避免導覽列遮住內容 -->
         <section id="recharge" class="py-12 bg-neutral-lightBg">
             <div class="container mx-auto px-4">
                 <h2 class="text-2xl font-bold text-neutral-text mb-8 text-center">儲值教學</h2>
@@ -136,13 +146,10 @@
             <!-- 區塊2：18+警語/法律連結 -->
             <div class="border-t border-white/20 pt-6 pb-4">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <!-- 18+ icon 與警語 -->
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center font-bold">18+</div>
                         <p class="text-sm max-w-md">本遊戲含有部分成人內容，未滿18歲玩家請勿進入；遊戲涉及棋牌益智娛樂，非現金賭博，請勿進行非法遊戲幣交易。</p>
                     </div>
-                    
-                    <!-- 法律連結 -->
                     <div class="flex flex-wrap gap-3 text-sm">
                         <a href="#" class="hover:text-primary-gold transition-colors">服務條款</a>
                         <a href="#" class="hover:text-primary-gold transition-colors">隱私條款</a>
@@ -152,7 +159,6 @@
                 </div>
             </div>
 
-            <!-- 區塊3：Copyright -->
             <div class="border-t border-white/20 pt-4 text-center text-sm text-white/70">
                 <p>Copyright © 2025 All Rights Reserved 星運娛樂有限公司 版權所有</p>
             </div>
@@ -161,19 +167,15 @@
 
     <!-- 右側浮動導流區 -->
     <div class="fixed right-4 bottom-4 hidden md:flex flex-col gap-3 z-40">
-        <!-- QR碼：掃碼進入遊戲 -->
         <div class="bg-white p-3 rounded-lg shadow-lg">
             <img src="https://picsum.photos/id/14/150" alt="遊戲入口QR碼" class="w-36 h-auto">
             <p class="text-xs text-center text-neutral-text mt-1">掃碼進入遊戲</p>
         </div>
-        
-        <!-- 返回頂部按鈕 -->
         <button id="back-to-top" class="w-12 h-12 bg-secondary-cta text-white rounded-full flex items-center justify-center shadow-lg hover:bg-secondary-cta/90 transition-colors">
             <i class="fa-solid fa-chevron-up"></i>
         </button>
     </div>
 
-    <!-- 引入交互邏輯JS -->
     <script src="script.js"></script>
 </body>
 </html>
