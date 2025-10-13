@@ -1,54 +1,54 @@
 <!-- header.html -->
 <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <!-- LOGO圖標 -->
-        <a href="index.html" class="flex items-center">
-            <div class="w-12 h-12 bg-gradient-to-br from-primary-gold to-primary-warm rounded-lg flex items-center justify-center shadow-md">
-                <span class="text-white font-bold text-xl">SL</span>
-            </div>
-        </a>
+  <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- LOGO -->
+    <a href="index.html" class="flex items-center">
+      <div class="w-12 h-12 bg-gradient-to-br from-primary-gold to-primary-warm rounded-lg flex items-center justify-center shadow-md">
+        <span class="text-white font-bold text-xl">SL</span>
+      </div>
+    </a>
 
-        <!-- 桌面端導覽選單 -->
-        <nav class="hidden md:flex flex-1 justify-center items-center gap-8">
-            <a href="game-intro.html" class="text-neutral-text hover:text-primary-red transition-colors">遊戲介紹</a>
-            <a href="newbie.html" class="text-neutral-text hover:text-primary-red transition-colors">新手專區</a>
-            <a href="recharge.html" class="text-neutral-text hover:text-primary-red transition-colors">儲值教學</a>
-            <a href="customer.html" class="text-neutral-text hover:text-primary-red transition-colors">客服中心</a>
-            
-            <!-- 桌面端快速登入按鈕 -->
-            <div class="hidden md:flex gap-3">
-                <button class="w-28 bg-secondary-line text-white py-2 rounded-md hover:bg-secondary-line/90 transition-colors text-sm">
-                    <i class="fa-brands fa-line mr-1"></i>LINE 登入
-                </button>
-                <button class="w-28 bg-secondary-cta text-white py-2 rounded-md hover:bg-secondary-cta/90 transition-colors text-sm">
-                    <i class="fa-solid fa-globe mr-1"></i>網頁登入
-                </button>
-            </div>
-        </nav>
+    <!-- 導覽列 -->
+    <nav class="hidden md:flex flex-1 justify-center items-center gap-8">
+      <a href="game-intro.html" class="text-neutral-text hover:text-primary-red transition-colors">遊戲介紹</a>
+      <a href="newbie.html" class="text-neutral-text hover:text-primary-red transition-colors">新手專區</a>
+      <a href="recharge.html" class="text-neutral-text hover:text-primary-red transition-colors">儲值教學</a>
+      <a href="customer.html" class="text-neutral-text hover:text-primary-red transition-colors">客服中心</a>
+    </nav>
 
-        <!-- 手機端漢堡選單按鈕 -->
-        <button id="hamburger-btn" class="md:hidden text-neutral-text text-xl">
-            <i class="fa-solid fa-bars"></i>
+    <!-- 桌面版快速登入 -->
+    <div class="hidden md:flex gap-3">
+      <button class="w-28 bg-secondary-line text-white py-2 rounded-md hover:bg-secondary-line/90 transition-colors text-sm">
+        <i class="fa-brands fa-line mr-1"></i>LINE 登入
+      </button>
+      <button class="w-28 bg-secondary-cta text-white py-2 rounded-md hover:bg-secondary-cta/90 transition-colors text-sm">
+        <i class="fa-solid fa-globe mr-1"></i>網頁登入
+      </button>
+    </div>
+
+    <!-- 手機選單按鈕 -->
+    <button id="hamburger-btn" class="md:hidden text-neutral-text text-xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- 手機選單 -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+    <div class="container mx-auto px-4 py-3 flex flex-col gap-4">
+      <a href="game-intro.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">遊戲介紹</a>
+      <a href="newbie.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">新手專區</a>
+      <a href="recharge.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">儲值教學</a>
+      <a href="customer.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">客服中心</a>
+      
+      <!-- 手機登入 -->
+      <div class="flex flex-col gap-3 pt-2">
+        <button class="bg-secondary-line text-white px-4 py-2 rounded-md hover:bg-secondary-line/90 transition-colors">
+          <i class="fa-brands fa-line mr-1"></i>LINE 登入
         </button>
+        <button class="bg-secondary-cta text-white px-4 py-2 rounded-md hover:bg-secondary-cta/90 transition-colors">
+          <i class="fa-solid fa-globe mr-1"></i>網頁登入
+        </button>
+      </div>
     </div>
-
-    <!-- 手機端導覽選單（預設隱藏） -->
-    <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
-        <div class="container mx-auto px-4 py-3 flex flex-col gap-4">
-            <a href="game-intro.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">遊戲介紹</a>
-            <a href="newbie.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">新手專區</a>
-            <a href="recharge.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">儲值教學</a>
-            <a href="customer.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">客服中心</a>
-            
-            <!-- 手機端快速登入按鈕 -->
-            <div class="flex flex-col gap-3 pt-2">
-                <button class="bg-secondary-line text-white px-4 py-2 rounded-md hover:bg-secondary-line/90 transition-colors">
-                    <i class="fa-brands fa-line mr-1"></i>LINE 登入
-                </button>
-                <button class="bg-secondary-cta text-white px-4 py-2 rounded-md hover:bg-secondary-cta/90 transition-colors">
-                    <i class="fa-solid fa-globe mr-1"></i>網頁登入
-                </button>
-            </div>
-        </div>
-    </div>
+  </div>
 </header>
