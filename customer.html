@@ -115,10 +115,10 @@
             <p class="text-sm max-w-md">本遊戲含有部分成人內容，未滿18歲請勿進入；請勿進行非法交易。</p>
           </div>
           <div class="flex flex-wrap gap-3 text-sm">
-            <a href="#" class="hover:text-primary-gold">服務條款</a>
-            <a href="#" class="hover:text-primary-gold">隱私條款</a>
-            <a href="#" class="hover:text-primary-gold">遊戲規章</a>
-            <a href="#" class="hover:text-primary-gold">停權名單</a>
+            <a href="support.html?tab=terms" class="hover:text-primary-gold">服務條款</a>
+            <a href="support.html?tab=privacy" class="hover:text-primary-gold">隱私條款</a>
+            <a href="support.html?tab=rules" class="hover:text-primary-gold">遊戲規章</a>
+            <a href="support.html?tab=banlist" class="hover:text-primary-gold">停權名單</a>
           </div>
         </div>
       </div>
@@ -141,20 +141,51 @@
   </div>
 
   <!-- 導覽列載入邏輯 -->
-  <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (hamburgerBtn && mobileMenu) {
-          hamburgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-          });
-        }
+<script>
+  fetch('header.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // 漢堡選單
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (hamburgerBtn && mobileMenu) {
+        hamburgerBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // ✅ Tab 切換邏輯放進來
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      function activateTab(target) {
+        tabButtons.forEach(btn => {
+          const isActive = btn.dataset.target === target;
+          btn.classList.toggle('text-secondary-cta', isActive);
+          btn.classList.toggle('border-secondary-cta', isActive);
+          btn.classList.toggle('text-gray-500', !isActive);
+        });
+
+        tabPanels.forEach(panel => {
+          panel.classList.toggle('hidden', panel.id !== target);
+        });
+      }
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          activateTab(btn.dataset.target);
+        });
       });
-  </script>
+
+      // ✅ URL 帶入 tab
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get('tab') || 'terms'; // 預設顯示第一個
+      activateTab(tabParam);
+    })
+    .catch(err => console.error('header 載入失敗：', err));
+</script>
 
   <!-- Tab 切換邏輯 -->
   <script>
