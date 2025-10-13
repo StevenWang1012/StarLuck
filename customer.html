@@ -135,4 +135,53 @@
       <img src="https://i.redd.it/nm32z1y2nq251.png" alt="遊戲入口 QR code" class="w-36 h-auto">
       <p class="text-xs text-center text-neutral-text mt-1">掃碼進入遊戲</p>
     </div>
-    <button id="back-to-top" class="w-12 h-12 bg-secondary-cta text-white rounded-full flex items-center justify-center shadow-lg hover:bg-secondary-cta/90 trans
+    <button id="back-to-top" class="w-12 h-12 bg-secondary-cta text-white rounded-full flex items-center justify-center shadow-lg hover:bg-secondary-cta/90 transition-colors">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+  </div>
+
+  <!-- 導覽列載入邏輯 -->
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (hamburgerBtn && mobileMenu) {
+          hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
+      });
+  </script>
+
+  <!-- Tab 切換邏輯 -->
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+
+        tabButtons.forEach(b => b.classList.remove('text-secondary-cta', 'border-secondary-cta'));
+        btn.classList.add('text-secondary-cta', 'border-secondary-cta');
+
+        tabPanels.forEach(panel => {
+          panel.classList.toggle('hidden', panel.id !== target);
+        });
+      });
+    });
+
+    // 若 URL 有 ?tab=privacy，預設顯示該頁籤
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    if (tabParam) {
+      const targetBtn = document.querySelector(`.tab-btn[data-target="${tabParam}"]`);
+      if (targetBtn) targetBtn.click();
+    }
+  </script>
+
+</body>
+</html>
