@@ -10,40 +10,63 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Tailwind 自定義配置 -->
-  <script>
-    // 載入 header.html 到 header-placeholder
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-      })
-      .catch(error => console.error('載入 header.html 失敗：', error));
-
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: {
-              red: '#E63946',
-              gold: '#FFD700',
-              warm: '#FF9F9C'
-            },
-            secondary: {
-              line: '#06C755',
-              cta: '#1E88E5'
-            },
-            neutral: {
-              text: '#333333',
-              lightBg: '#F9F9F9'
-            }
+<script>
+  // Tailwind 自定義配置
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: {
+            red: '#E63946',
+            gold: '#FFD700',
+            warm: '#FF9F9C'
           },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
+          secondary: {
+            line: '#06C755',
+            cta: '#1E88E5'
+          },
+          neutral: {
+            text: '#333333',
+            lightBg: '#F9F9F9'
           }
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
         }
       }
-    };
-  </script>
+    }
+  };
+
+  // 載入 header.html 並處理高亮樣式
+  window.addEventListener('DOMContentLoaded', () => {
+    fetch('header.html')
+      .then(res => res.text())
+      .then(data => {
+        const headerContainer = document.getElementById('header-placeholder');
+        headerContainer.innerHTML = data;
+
+        // 取得目前頁面名稱
+        const currentPage = window.location.pathname.split('/').pop();
+
+        // 尋找所有導覽連結，根據 data-page 加上樣式
+        document.querySelectorAll('.nav-link').forEach(link => {
+          if (link.dataset.page === currentPage) {
+            link.classList.add('text-primary-red', 'font-bold');
+          }
+        });
+
+        // 手機版選單控制
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (hamburgerBtn && mobileMenu) {
+          hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
+      })
+      .catch(err => console.error('載入 header.html 失敗:', err));
+  });
+</script>
 
   <!-- 共用樣式 -->
   <link rel="stylesheet" href="style.css">
