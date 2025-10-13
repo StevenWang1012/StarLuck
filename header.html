@@ -1,6 +1,6 @@
 <!-- header.html -->
 <header class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
-  <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+  <div class="container mx-auto px-4 py-3 grid grid-cols-3 items-center">
     <!-- LOGO -->
     <a href="index.html" class="flex items-center">
       <div class="w-12 h-12 bg-gradient-to-br from-primary-gold to-primary-warm rounded-lg flex items-center justify-center shadow-md">
@@ -8,16 +8,16 @@
       </div>
     </a>
 
-    <!-- 導覽列 -->
-    <nav class="hidden md:flex flex-1 justify-center items-center gap-8">
+    <!-- 桌面端導覽列 -->
+    <nav class="hidden md:flex justify-center items-center gap-8">
       <a href="game-intro.html" class="text-neutral-text hover:text-primary-red transition-colors">遊戲介紹</a>
       <a href="newbie.html" class="text-neutral-text hover:text-primary-red transition-colors">新手專區</a>
       <a href="recharge.html" class="text-neutral-text hover:text-primary-red transition-colors">儲值教學</a>
       <a href="customer.html" class="text-neutral-text hover:text-primary-red transition-colors">客服中心</a>
     </nav>
 
-    <!-- 桌面版快速登入 -->
-    <div class="hidden md:flex gap-3">
+    <!-- 桌面端快速登入按鈕 -->
+    <div class="hidden md:flex justify-end gap-3">
       <button class="w-28 bg-secondary-line text-white py-2 rounded-md hover:bg-secondary-line/90 transition-colors text-sm">
         <i class="fa-brands fa-line mr-1"></i>LINE 登入
       </button>
@@ -27,12 +27,12 @@
     </div>
 
     <!-- 手機選單按鈕 -->
-    <button id="hamburger-btn" class="md:hidden text-neutral-text text-xl">
+    <button id="hamburger-btn" class="md:hidden text-neutral-text text-xl absolute right-4 top-4">
       <i class="fa-solid fa-bars"></i>
     </button>
   </div>
 
-  <!-- 手機選單 -->
+  <!-- 手機端導覽選單 -->
   <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
     <div class="container mx-auto px-4 py-3 flex flex-col gap-4">
       <a href="game-intro.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">遊戲介紹</a>
@@ -40,7 +40,7 @@
       <a href="recharge.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">儲值教學</a>
       <a href="customer.html" class="text-neutral-text hover:text-primary-red py-2 border-b border-gray-100">客服中心</a>
       
-      <!-- 手機登入 -->
+      <!-- 手機版登入 -->
       <div class="flex flex-col gap-3 pt-2">
         <button class="bg-secondary-line text-white px-4 py-2 rounded-md hover:bg-secondary-line/90 transition-colors">
           <i class="fa-brands fa-line mr-1"></i>LINE 登入
